@@ -1,0 +1,192 @@
+/* ==========================================================================
+   Ticket Confirmed Section & Rubber Stamp Styles
+   ========================================================================== */
+
+.confirmed-section-wrapper {
+  margin: 12px auto 16px;
+  max-width: 680px;
+  width: 100%;
+}
+
+.confirmed-card {
+  background: linear-gradient(135deg, #FFFDF8 0%, #FAF3E3 100%);
+  border: 1.5px solid #D8CEBC;
+  border-radius: var(--radius-lg);
+  padding: 36px 24px 32px;
+  box-shadow: 
+    0 16px 36px -8px rgba(31, 77, 71, 0.1),
+    0 4px 12px -2px rgba(31, 77, 71, 0.05);
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .confirmed-card {
+    padding: 28px 16px 24px;
+  }
+}
+
+.confirmed-header-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  background-color: var(--color-forest-surface);
+  border: 1px solid var(--color-forest-border);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.confirmed-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  font-weight: 800;
+  color: var(--color-forest-deep);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.confirmed-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-coral);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+/* Authentic Physical Rubber Stamp */
+.rubber-stamp-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px auto 32px;
+  position: relative;
+}
+
+.rubber-stamp {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border: 3.5px solid #C0392B;
+  border-radius: 8px;
+  color: #C0392B;
+  transform: rotate(-5deg);
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15), inset 0 0 0 2px #C0392B;
+  background-color: rgba(192, 57, 43, 0.04);
+  position: relative;
+  user-select: none;
+  transition: transform 0.3s ease;
+  max-width: 90%;
+}
+
+.rubber-stamp:hover {
+  transform: rotate(-3deg) scale(1.02);
+}
+
+.stamp-main-text {
+  font-family: var(--font-mono);
+  font-size: clamp(1.05rem, 3.2vw, 1.45rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.stamp-sub-text {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  border-top: 1.5px solid #C0392B;
+  padding-top: 3px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Links Grid */
+.confirmed-links-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 520px;
+  margin: 0 auto 30px;
+}
+
+@media (max-width: 480px) {
+  .confirmed-links-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+.confirmed-link-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #FFFFFF;
+  border: 1.5px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  color: var(--color-forest-deep);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-subtle);
+  gap: 8px;
+}
+
+@media (max-width: 380px) {
+  .confirmed-link-pill {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 10px 14px;
+  }
+}
+
+.confirmed-link-pill:hover {
+  border-color: var(--color-forest);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+  background-color: var(--bg-card-raised);
+}
+
+.confirmed-link-pill.placeholder-link {
+  border-style: dashed;
+  color: var(--text-secondary);
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.confirmed-link-pill.placeholder-link:hover {
+  border-style: solid;
+  border-color: var(--color-coral);
+}
+
+/* Final Hindi Blessing Signoff */
+.yatra-blessing {
+  font-family: var(--font-sans);
+  font-size: clamp(1.2rem, 3.2vw, 1.55rem);
+  font-weight: 800;
+  color: var(--color-forest-deep);
+  letter-spacing: 0.02em;
+  position: relative;
+  display: inline-block;
+  padding-top: 16px;
+  border-top: 2px dashed rgba(31, 77, 71, 0.25);
+  width: 100%;
+}
