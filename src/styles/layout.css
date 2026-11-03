@@ -48,6 +48,13 @@ html, body {
   }
 }
 
+@media (max-width: 480px) {
+  .site-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
 @media (min-width: 1024px) {
   .site-container {
     padding-left: 32px;
@@ -76,17 +83,100 @@ html, body {
   width: 100%;
 }
 
-/* Header Placement Rules (Mobile vs Desktop) */
-.header-desktop-exp {
-  display: inline-flex;
+.header-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
 }
 
-.header-mobile-exp {
-  display: none;
+.station-logo-icon {
+  background-color: var(--color-forest);
+  color: #FFFFFF;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-subtle);
+  flex-shrink: 0;
+}
+
+.station-brand-text {
+  min-width: 0;
+}
+
+.station-brand-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.station-brand-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(0.98rem, 2.8vw, 1.12rem);
+  letter-spacing: 0.03em;
+  color: var(--color-forest-deep);
+  text-transform: uppercase;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.header-exp-badge {
+  background-color: var(--color-forest-surface);
+  color: var(--color-forest);
+  border: 1px solid var(--color-forest-border);
+  font-size: 0.65rem;
+  white-space: nowrap;
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+}
+
+.station-header-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+.header-right-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .header-status-full {
   display: inline;
+}
+
+.header-pf-board {
+  padding: 4px 13px 4px 11px;
+  border-width: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: default;
+  box-shadow: 0 2px 0 #1A1915;
+  white-space: nowrap;
+}
+
+.header-pf-icon {
+  color: var(--color-station-yellow-text);
+  flex-shrink: 0;
+}
+
+.header-pf-text {
+  font-family: var(--font-mono);
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-station-yellow-text);
+  margin-right: 2px;
 }
 
 /* Ticker Label Tag */
@@ -94,36 +184,83 @@ html, body {
   display: inline;
 }
 
+/* Mobile Responsive Optimization for Header */
 @media (max-width: 640px) {
-  .header-desktop-exp {
-    display: none;
+  .header-brand-group {
+    gap: 7px;
   }
-  .header-mobile-exp {
-    display: inline-flex;
+  .station-logo-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .station-logo-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+  .station-brand-title {
+    font-size: 0.88rem;
+    letter-spacing: 0.01em;
+  }
+  .station-brand-title-row {
+    gap: 5px;
+  }
+  .header-exp-badge {
+    font-size: 0.58rem;
+    padding: 1px 4px;
+  }
+  .station-header-subtitle {
+    font-size: 0.58rem;
+    letter-spacing: 0.02em;
+    margin-top: 1px;
+  }
+  .header-right-status {
+    gap: 5px;
   }
   .header-status-full {
     display: none;
   }
-  .ticker-label-tag {
-    display: none;
+  .status-pill.on-time {
+    padding: 3px 6px !important;
+    font-size: 0.62rem !important;
+    gap: 4px !important;
   }
-  /* Compact PF-1 board only on mobile view */
+  .status-pill.on-time .signal-dot {
+    width: 6px !important;
+    height: 6px !important;
+  }
   .header-pf-board {
-    padding: 2px 7px !important;
+    padding: 2.5px 6px !important;
     border-width: 1.5px !important;
     gap: 3px !important;
-  }
-  .header-pf-board span {
-    font-size: 0.62rem !important;
-    margin-right: 0 !important;
-  }
-  .header-pf-board svg {
-    width: 10px !important;
-    height: 10px !important;
+    box-shadow: 0 1px 0 #1A1915 !important;
   }
   .header-pf-board::before,
   .header-pf-board::after {
     display: none !important;
+  }
+  .header-pf-icon {
+    width: 10px !important;
+    height: 10px !important;
+  }
+  .header-pf-text {
+    font-size: 0.60rem !important;
+    margin-right: 0 !important;
+  }
+  .ticker-label-tag {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .station-brand-title {
+    font-size: 0.82rem;
+  }
+  .station-header-subtitle {
+    font-size: 0.54rem;
+  }
+  .header-exp-badge {
+    padding: 0 3px;
+    font-size: 0.54rem;
   }
 }
 
