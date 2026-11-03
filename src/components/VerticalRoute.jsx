@@ -363,6 +363,28 @@ export default function VerticalRoute() {
                   </div>
                 </div>
               </div>
+
+              {/* Shoplex Links */}
+              <div className="station-links-row">
+                <a
+                  href="https://github.com/arnav-54/Shoplex"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="station-link-btn"
+                >
+                  <Github size={13} />
+                  <span>GitHub Repository</span>
+                </a>
+                <a
+                  href="https://shoplex-frontend.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="station-link-btn live-demo"
+                >
+                  <ExternalLink size={13} />
+                  <span>Live Demo</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -389,19 +411,23 @@ export default function VerticalRoute() {
 
               <div className="station-links-row">
                 <a
-                  href="https://github.com/arnav-54"
+                  href="https://github.com/arnav-54/chat-app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="placeholder-pill"
-                  style={{ textDecoration: 'none', color: 'var(--color-forest)', borderColor: 'var(--color-forest-border)' }}
+                  className="station-link-btn"
                 >
                   <Github size={13} />
                   <span>GitHub Repository</span>
                 </a>
-                <span className="placeholder-pill">
+                <a
+                  href="https://chat-app-1-0h9p.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="station-link-btn live-demo"
+                >
                   <ExternalLink size={13} />
-                  <span>[Live Demo]</span>
-                </span>
+                  <span>Live Demo</span>
+                </a>
               </div>
             </div>
           </div>
@@ -490,19 +516,23 @@ export default function VerticalRoute() {
               {/* Links */}
               <div className="station-links-row">
                 <a
-                  href="https://github.com/arnav-54"
+                  href="https://github.com/arnav-54/StudentOS"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="placeholder-pill"
-                  style={{ textDecoration: 'none', color: 'var(--color-forest)', borderColor: 'var(--color-forest-border)' }}
+                  className="station-link-btn"
                 >
                   <Github size={13} />
                   <span>GitHub Repository</span>
                 </a>
-                <span className="placeholder-pill">
+                <a
+                  href="https://student-os-bice.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="station-link-btn live-demo"
+                >
                   <ExternalLink size={13} />
-                  <span>[Live Demo]</span>
-                </span>
+                  <span>Live Demo</span>
+                </a>
               </div>
             </div>
           </div>
