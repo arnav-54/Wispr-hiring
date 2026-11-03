@@ -1,0 +1,427 @@
+/* ==========================================================================
+   Vertical Indian Railways Route & Train Animation Styles
+   ========================================================================== */
+
+.route-section-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 0 12px;
+}
+
+/* Route Section Header */
+.route-section-header {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.route-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 800;
+  color: var(--color-forest-deep);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.route-subline {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* Track & Timeline Container */
+.railway-route-container {
+  position: relative;
+  padding-left: 44px; /* Space for the track on mobile & desktop */
+}
+
+@media (min-width: 640px) {
+  .railway-route-container {
+    padding-left: 56px;
+  }
+}
+
+/* The Vertical Railway Line - Subtle & Clean */
+.railway-vertical-track {
+  position: absolute;
+  top: 14px;
+  bottom: 24px;
+  left: 14px;
+  width: 14px;
+  background: 
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 14px,
+      rgba(31, 77, 71, 0.10) 14px,
+      rgba(31, 77, 71, 0.10) 16px
+    );
+  border-left: 1.5px solid rgba(31, 77, 71, 0.18);
+  border-right: 1.5px solid rgba(31, 77, 71, 0.18);
+}
+
+@media (min-width: 640px) {
+  .railway-vertical-track {
+    left: 18px;
+    width: 16px;
+  }
+}
+
+/* Animated Scroll Progress Track Indicator */
+.railway-track-progress {
+  position: absolute;
+  top: 0;
+  left: -2px;
+  right: -2px;
+  background: var(--color-forest);
+  border-left: 2px solid var(--color-forest-dark);
+  border-right: 2px solid var(--color-forest-dark);
+  transition: height 0.15s ease-out;
+  pointer-events: none;
+}
+
+/* Moving Train Marker */
+.moving-train-marker {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  background-color: var(--color-forest-deep);
+  color: var(--color-station-yellow);
+  border-radius: 50%;
+  border: 2px solid var(--color-station-yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(245, 184, 0, 0.6), 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 10;
+  transition: top 0.25s ease-out;
+}
+
+/* Station Nodes & Stop Markers */
+.route-stations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .route-stations-list {
+    gap: 36px;
+  }
+}
+
+/* Station Item Shell */
+.station-node-item {
+  position: relative;
+  transition: transform 0.25s ease;
+}
+
+/* Junction Point / Track Node */
+.station-track-node {
+  position: absolute;
+  top: 22px;
+  left: -37px; /* Fallback */
+  left: calc(21px - 44px - 8px); /* Centers on 21px track center: -31px */
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--bg-canvas);
+  border: 3px solid var(--color-forest);
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .station-track-node {
+    left: calc(26px - 56px - 9px); /* Centers on 26px track center: -39px */
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.station-track-node.active-stop {
+  background-color: var(--color-coral);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 0 4px var(--color-orange-subtle), 0 0 8px rgba(224, 90, 71, 0.4);
+  transform: scale(1.15);
+}
+
+.station-track-node.completed-stop {
+  background-color: var(--color-signal-green);
+  border-color: #FFFFFF;
+}
+
+.station-track-node.final-stop {
+  background-color: var(--color-station-yellow);
+  border-color: var(--color-station-yellow-border);
+  box-shadow: 0 0 0 4px rgba(245, 184, 0, 0.25);
+}
+
+/* Station Card Surface */
+.station-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 18px 16px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  transition: all 0.22s ease;
+}
+
+@media (min-width: 640px) {
+  .station-card {
+    padding: 22px 22px;
+  }
+}
+
+.station-card:hover {
+  border-color: var(--color-forest);
+  box-shadow: var(--shadow-ticket);
+  transform: translateY(-2px);
+}
+
+/* Special Bigger Card for StudentOS */
+.station-card.featured-card {
+  border: 2px solid var(--color-forest);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F2 100%);
+  box-shadow: 0 10px 24px -4px rgba(31, 77, 71, 0.12);
+  padding: 18px 14px;
+}
+
+@media (min-width: 480px) {
+  .station-card.featured-card {
+    padding: 22px 18px;
+  }
+}
+
+@media (min-width: 640px) {
+  .station-card.featured-card {
+    padding: 28px 26px;
+  }
+}
+
+/* Station Card Header */
+.station-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.station-name-title {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--color-forest-deep);
+  line-height: 1.25;
+}
+
+.station-date-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  background-color: var(--color-forest-surface);
+  border: 1px solid var(--color-forest-border);
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* What I Did Body Text */
+.station-action-text {
+  font-family: var(--font-sans);
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+/* First Realisation Box (Rourkela) */
+.station-realisation-box {
+  background-color: #FAF5E8;
+  border-left: 3.5px solid var(--color-station-yellow-border);
+  border-radius: var(--radius-xs);
+  padding: 10px 14px;
+  margin: 10px 0 4px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #2E2613;
+}
+
+.realisation-badge-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #7A5B00;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* Badge Current Internship */
+.badge-current-internship {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background-color: rgba(31, 157, 85, 0.12);
+  color: #126337;
+  border: 1px solid rgba(31, 157, 85, 0.35);
+  padding: 2px 7px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Delay Reason Box */
+.station-delay-box {
+  background-color: #FDF4F0;
+  border-left: 3.5px solid var(--color-coral);
+  border-radius: var(--radius-xs);
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #382420;
+}
+
+.delay-badge-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-coral);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* Learned Box */
+.station-learned-box {
+  background-color: rgba(31, 77, 71, 0.06);
+  border-left: 3.5px solid var(--color-forest);
+  border-radius: var(--radius-xs);
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-forest-deep);
+}
+
+.learned-badge-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-forest);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* Technical Details Accordion */
+.tech-details-container {
+  margin-top: 10px;
+}
+
+.tech-details-toggle {
+  background: none;
+  border: 1px dashed var(--border-medium);
+  border-radius: var(--radius-xs);
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.tech-details-toggle:hover {
+  border-color: var(--color-forest);
+  color: var(--color-forest-deep);
+  background-color: var(--color-forest-surface);
+}
+
+.tech-details-content {
+  margin-top: 6px;
+  padding: 10px 14px;
+  background-color: var(--bg-canvas-subtle);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--color-forest-dark);
+  border-left: 2px solid var(--border-strong);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Links & Placeholders */
+.station-links-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.placeholder-pill {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  background-color: var(--bg-canvas-subtle);
+  border: 1px dashed var(--border-medium);
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Final Station / Wispr Flow Teaser */
+.final-station-card {
+  background: linear-gradient(135deg, var(--color-forest-deep) 0%, var(--color-forest) 100%);
+  color: var(--text-inverse);
+  border: 2px solid var(--color-station-yellow);
+  box-shadow: 0 12px 30px -4px rgba(13, 36, 33, 0.25);
+}
+
+.final-station-card .station-name-title {
+  color: var(--color-station-yellow);
+}
+
+.final-station-card .station-action-text {
+  color: var(--text-inverse);
+}
