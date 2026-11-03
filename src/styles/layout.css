@@ -1,0 +1,181 @@
+/* ==========================================================================
+   Mobile-First Layout & Page Structure
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, p, span, div, a {
+  overflow-wrap: break-word;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Base App Shell */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--bg-canvas);
+  /* Subtle railway track / paper texture background */
+  background-image: radial-gradient(rgba(31, 77, 71, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Responsive Main Container */
+.site-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* Header Station Bar */
+.station-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(250, 246, 238, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1.5px solid var(--border-subtle);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+}
+
+.station-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Railway Departure LED Ticker Bar */
+.ticker-strip {
+  background-color: var(--board-bg);
+  border-bottom: 2px solid #000;
+  color: var(--board-led-amber);
+  padding: 7px 0;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  overflow: hidden;
+  position: relative;
+  z-index: 40;
+}
+
+.ticker-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .ticker-strip {
+    font-size: 0.70rem;
+    padding: 6px 0;
+  }
+  .ticker-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+/* Main Content Area */
+.main-journey-content {
+  flex: 1;
+  padding-top: 18px;
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+@media (min-width: 768px) {
+  .main-journey-content {
+    padding-top: 24px;
+    padding-bottom: 56px;
+    gap: 32px;
+  }
+}
+
+/* Section Wrapper */
+.journey-section {
+  position: relative;
+  scroll-margin-top: 90px;
+}
+
+/* Section Header Meta */
+.section-meta-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.section-platform-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-coral);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-distance-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+@media (min-width: 520px) {
+  .mobile-hide-inline {
+    display: inline !important;
+  }
+}
+
+/* Footer Station */
+.station-footer {
+  background-color: var(--color-forest-deep);
+  color: var(--text-inverse);
+  padding: 36px 0 24px;
+  border-top: 3px solid var(--color-forest);
+  margin-top: auto;
+}
