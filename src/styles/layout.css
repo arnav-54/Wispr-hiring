@@ -76,6 +76,57 @@ html, body {
   width: 100%;
 }
 
+/* Header Placement Rules (Mobile vs Desktop) */
+.header-desktop-exp {
+  display: inline-flex;
+}
+
+.header-mobile-exp {
+  display: none;
+}
+
+.header-status-full {
+  display: inline;
+}
+
+/* Ticker Label Tag */
+.ticker-label-tag {
+  display: inline;
+}
+
+@media (max-width: 640px) {
+  .header-desktop-exp {
+    display: none;
+  }
+  .header-mobile-exp {
+    display: inline-flex;
+  }
+  .header-status-full {
+    display: none;
+  }
+  .ticker-label-tag {
+    display: none;
+  }
+  /* Compact PF-1 board only on mobile view */
+  .header-pf-board {
+    padding: 2px 7px !important;
+    border-width: 1.5px !important;
+    gap: 3px !important;
+  }
+  .header-pf-board span {
+    font-size: 0.62rem !important;
+    margin-right: 0 !important;
+  }
+  .header-pf-board svg {
+    width: 10px !important;
+    height: 10px !important;
+  }
+  .header-pf-board::before,
+  .header-pf-board::after {
+    display: none !important;
+  }
+}
+
 /* Railway Departure LED Ticker Bar */
 .ticker-strip {
   background-color: var(--board-bg);

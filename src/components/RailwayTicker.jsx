@@ -6,7 +6,7 @@ export default function RailwayTicker() {
     <div className="ticker-strip" role="region" aria-label="Railway Departure Updates">
       <div className="site-container ticker-inner">
         {/* Left Side: Service Details */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
           <span
             style={{
               backgroundColor: 'var(--color-station-yellow)',
@@ -14,18 +14,21 @@ export default function RailwayTicker() {
               fontWeight: 800,
               padding: '1px 5px',
               borderRadius: '2px',
-              fontSize: '0.68rem'
+              fontSize: '0.68rem',
+              flexShrink: 0
             }}
           >
             TRAIN 2026-WF
           </span>
-          <span className="board-led-text" style={{ fontSize: '0.74rem' }}>
-            ORIGIN: ROURKELA <span style={{ color: 'var(--board-led-dim)' }}>→</span> DESTINATION: WISPR FLOW INDIA
+          <span className="board-led-text" style={{ fontSize: '0.74rem', whiteSpace: 'nowrap' }}>
+            <span className="ticker-label-tag">ORIGIN: </span>ROURKELA{' '}
+            <span style={{ color: 'var(--board-led-dim)' }}>→</span>{' '}
+            <span className="ticker-label-tag">DESTINATION: </span>WISPR FLOW INDIA
           </span>
         </div>
 
         {/* Right Side: Status */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
           <span
             style={{
               display: 'inline-flex',

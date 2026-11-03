@@ -46,29 +46,39 @@
   }
 }
 
-/* The Vertical Railway Line - Subtle & Clean */
+/* The Vertical Railway Line - Crisp & Visible */
 .railway-vertical-track {
   position: absolute;
   top: 14px;
   bottom: 24px;
   left: 14px;
-  width: 14px;
+  width: 16px;
   background: 
     repeating-linear-gradient(
       to bottom,
       transparent 0px,
-      transparent 14px,
-      rgba(31, 77, 71, 0.10) 14px,
-      rgba(31, 77, 71, 0.10) 16px
+      transparent 11px,
+      rgba(31, 77, 71, 0.42) 11px,
+      rgba(31, 77, 71, 0.42) 14px
     );
-  border-left: 1.5px solid rgba(31, 77, 71, 0.18);
-  border-right: 1.5px solid rgba(31, 77, 71, 0.18);
+  border-left: 2px solid var(--color-forest);
+  border-right: 2px solid var(--color-forest);
 }
 
 @media (min-width: 640px) {
   .railway-vertical-track {
     left: 18px;
-    width: 16px;
+    width: 18px;
+    background: 
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 12px,
+        rgba(31, 77, 71, 0.45) 12px,
+        rgba(31, 77, 71, 0.45) 15px
+      );
+    border-left: 2.5px solid var(--color-forest);
+    border-right: 2.5px solid var(--color-forest);
   }
 }
 
@@ -128,8 +138,7 @@
 .station-track-node {
   position: absolute;
   top: 22px;
-  left: -37px; /* Fallback */
-  left: calc(21px - 44px - 8px); /* Centers on 21px track center: -31px */
+  left: calc(22px - 44px - 8px); /* Centered at 22px track center: -30px */
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -141,7 +150,7 @@
 
 @media (min-width: 640px) {
   .station-track-node {
-    left: calc(26px - 56px - 9px); /* Centers on 26px track center: -39px */
+    left: calc(27px - 56px - 9px); /* Centered at 27px track center: -38px */
     width: 18px;
     height: 18px;
   }
